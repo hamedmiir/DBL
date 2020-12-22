@@ -1,4 +1,4 @@
-import { Length, IsOptional, Min, IsNumber } from 'class-validator';
+import { IsNumber, IsOptional, Length, Min } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class PersonDto {

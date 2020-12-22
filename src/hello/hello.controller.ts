@@ -1,7 +1,7 @@
-import { Controller, Post, Body, Get, Header, Query } from '@nestjs/common';
+import { Body, Controller, Get, Header, Post, Query } from '@nestjs/common';
 import { HelloService } from './hello.service';
 import { PersonDto } from './dto/person.dto';
-import { ApiResponse, ApiBearerAuth, ApiQuery } from '@nestjs/swagger';
+import { ApiQuery, ApiResponse } from '@nestjs/swagger';
 
 @Controller('hello')
 export class HelloController {
