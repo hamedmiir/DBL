@@ -31,6 +31,12 @@ export class BooksController {
     return this.booksServices.delete(bookID)
   }
 
+  @ApiResponse({status: 200, description: 'Modify a book'})
+  @ApiQuery({
+    name: 'bookID',
+    required: true,
+    type: Number
+  })
   @Put()
   modifyBook(@Query('bookID', ParseIntPipe) bookID: number, @Body() book: CreateBookDto) {
     return this.booksServices.modify(bookID, book);

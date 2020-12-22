@@ -1,4 +1,4 @@
-import { Body, Controller, Get, ParseIntPipe, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, ParseIntPipe, Post, Put, Query } from '@nestjs/common';
 import { UserServices } from './user.service';
 import CreateUserDto from './dto/create-user.dto';
 import { ApiQuery, ApiResponse } from '@nestjs/swagger';
@@ -31,5 +31,27 @@ export class UserController {
   @Get('books')
   getBooks( @Query('userID', ParseIntPipe) userID: number ) {
     return this.usersServices.getBooksOfUser(userID);
+  }
+
+  @ApiResponse({status: 200, description: 'Delete a user'})
+  @ApiQuery({
+    name: 'userID',
+    required: true,
+    type: Number
+  })
+  @Delete()
+  deleteBook(@Query('userID', ParseIntPipe) userID: number) {
+    return this.usersServices.delete(userID)
+  }
+
+  @ApiResponse({status: 200, description: 'Modify a user'})
+  @ApiQuery({
+    name: 'userID',
+    required: true,
+    type: Number
+  })
+  @Put()
+  modifyBook(@Query('userID', ParseIntPipe) userID: number, @Body() user: CreateUserDto) {
+    return this.usersServices.modify(userID, user);
   }
 }

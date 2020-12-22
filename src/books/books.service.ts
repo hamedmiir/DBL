@@ -1,7 +1,6 @@
 import BookEntity from '../db/entity/book.entity';
 import CreateBookDto from './dto/create-book.dto';
 import UserEntity from '../db/entity/user.entity';
-import { getConnection, UpdateResult } from 'typeorm';
 import GenreEntity from '../db/entity/genre.entity';
 
 export class BooksService {
