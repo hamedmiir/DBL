@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, ParseIntPipe, Post, Put, Query } from '@
 import { UserServices } from './user.service';
 import CreateUserDto from './dto/create-user.dto';
 import { ApiQuery, ApiResponse } from '@nestjs/swagger';
+import { Public } from '../auth/public';
 
 @Controller('user')
 export class UserController {
@@ -9,6 +10,7 @@ export class UserController {
 
 //'postUser()' will handle the creating of new User
   @ApiResponse({status: 200, description: 'Insert user'})
+  @Public()
   @Post()
   postUser( @Body() user: CreateUserDto) {
     return this.usersServices.insert(user);
