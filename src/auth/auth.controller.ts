@@ -12,6 +12,6 @@ export class AuthController {
   @ApiResponse({ status : 200, description: 'Login With Username and Password'} )
   @Post('login')
   async login(@Request() req) {
-    return req.user;
+    return this.authServices.login(req.user);
   }
 }
